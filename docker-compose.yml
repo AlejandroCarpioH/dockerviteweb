@@ -1,0 +1,10 @@
+services:
+  myapp:
+    container_name: myapp
+    image: myapp
+    # volumes:
+    # - .:/home/app
+    # - /home/app/node_modules
+    ports:
+      - "3005:3005"
+      # - "/c:/Users/David/Documents/Programacion/pruebaDocker/dockerwebvite:/home/app"
