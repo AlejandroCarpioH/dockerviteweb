@@ -10,13 +10,30 @@ RUN npm install
 COPY . .
 RUN npm run build
 
+
+
+#Etapa produccon nginx
+
+FROM nginx:stable-alpine
+
+COPY --from=build /home/app/dist /usr/share/nginx/html
+
+# COPY /nginx/nginx.conf /etc/nginx/nginx.conf
+
+# EXPOSE 3002
+
+CMD ["nginx", "-g", "daemon off;"]
+
+
+
+
 # Etapa de Producción
-FROM node:20
+# FROM node:20
 
-WORKDIR /home/app
+# WORKDIR /home/app
 
-COPY --from=build /home/app/build /app/build
-COPY --from=build /home/app/node_modules /app/node_modules
-COPY . .
+# COPY --from=build /home/app/build /app/build
+# COPY --from=build /home/app/node_modules /app/node_modules
+# COPY . .
 
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
