@@ -4,7 +4,6 @@ services:
     image: koyotee/myapp3
     ports:
       - 3000:3000
-      - 443:443
     # volumes:
     # - .:/home/app
     # - /home/app/node_modules
