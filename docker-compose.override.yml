@@ -3,7 +3,7 @@ services:
     container_name: myapp
     build:
       context: .
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     volumes:
       - .:/home/app
       - /home/app/node_modules
