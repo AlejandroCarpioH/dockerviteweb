@@ -8,5 +8,5 @@ services:
       - .:/home/app
       - /home/app/node_modules
     ports:
-      - "3003:80"
+      - "3004:80"
       # - "/c:/Users/David/Documents/Programacion/pruebaDocker/dockerwebvite:/home/app"

@@ -3,7 +3,7 @@ services:
     container_name: myapp
     image: koyotee/myapp3
     ports:
-      - 3003:80
+      - 3004:80
     # volumes:
     # - .:/home/app
     # - /home/app/node_modules
