@@ -15,8 +15,7 @@ FROM node:20
 
 WORKDIR /home/app
 
-COPY --from=build /home/app/build /app/build
-COPY --from=build /home/app/node_modules /app/node_modules
+# COPY --from=build /build /home/app/build
+# COPY --from=build /home/app/node_modules /app/node_modules
 COPY . .
-
-CMD ["npm", "start"]
+CMD ["npm", "run", "preview"]
