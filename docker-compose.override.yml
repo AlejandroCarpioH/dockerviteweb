@@ -4,9 +4,11 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    # volumes:
-    #   - .:/home/app
-    #   - /home/app/node_modules
+
+    volumes:
+      - .:/home/app
+      - /home/app/node_modules
+
     ports:
-      - "5173:5173"
+      - "3004:80"
       # - "/c:/Users/David/Documents/Programacion/pruebaDocker/dockerwebvite:/home/app"
