@@ -1,31 +1,41 @@
 import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
+// import reactLogo from "./assets/react.svg";
+// import viteLogo from "/vite.svg";
+import { useEffect } from "react";
 import "./App.css";
+import { getApi } from "./api/getData";
+
+interface data {
+  completed: boolean;
+  id: number;
+  title: string;
+  userId: number;
+}
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [users, setUsers] = useState<data[]>([]);
+
+  useEffect(() => {
+    (async () => {
+      const data = (await getApi()) as data[];
+      setUsers(data);
+    })();
+  }, []);
 
   return (
     <>
       <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+        {users.map((user) => {
+          return (
+            <div style={{ display: "grid", gap: "1rem" }}>
+              <p>{user.id}</p>
+              <p>{user.title}</p>
+              <p>{user.completed}</p>
+              <p>{user.userId}</p>
+            </div>
+          );
+        })}
       </div>
-      <h1>Vite + Reactaa</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>aqui se coloca el codigo de este alejandro carpio alejandro 2</code>
-        </p>
-      </div>
-      <p className="read-the-docs"></p>
     </>
   );
 }
