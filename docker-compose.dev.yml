@@ -1,0 +1,12 @@
+services:
+  myapp:
+    container_name: myapp3
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+      - .:/home/apps                                                     
+      - /home/app/node_modules
+    ports:
+      - "3001:5173"
+      # - "/c:/Users/David/Documents/Programacion/pruebaDocker/dockerwebvite:/home/app"

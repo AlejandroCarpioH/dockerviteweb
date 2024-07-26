@@ -1,9 +1,9 @@
 services:
   myapp:
-    container_name: myapp
+    container_name: myapp3
     image: koyotee/myapp3
     ports:
-      - 3004:80
+      - "3005:80"
     # volumes:
     # - .:/home/app
     # - /home/app/node_modules
