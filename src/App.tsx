@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <div>hola nuevo build desde local ahora si</div>
+      <div>este es un nuevo valor</div>
     </>
   );
 }

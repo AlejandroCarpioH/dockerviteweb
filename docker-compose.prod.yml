@@ -2,6 +2,7 @@ services:
   myapp:
     container_name: myapp3
     image: koyotee/myapp3
+    pull_policy: always
     ports:
       - "3005:80"
     # volumes:
