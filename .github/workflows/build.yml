@@ -45,11 +45,9 @@ jobs:
           # ls ~/.ssh/
           ssh -o StrictHostKeyChecking=no ubuntu@ec2-3-132-99-76.us-east-2.compute.amazonaws.com << 'EOF'
             # cd /home/ubuntu/dockertestactions/dockertest
-            GIT_SSH_COMMAND="ssh -i ~/.ssh/aws_action_dockertest -F /dev/null" 
-            touch addtest.txt
-            # git pull origin main
-            # cd /home/ubuntu/
-            # scp -i ~/.ssh/aws_action_dockertest /docker-compose.prod.yml ubuntu@ec2-3-132-99-76.us-east-2.compute.amazonaws.com:/
+            # GIT_SSH_COMMAND="ssh -i ~/.ssh/aws_action_dockertest -F /dev/null" 
+            sudo docker compose stop myapp3   
             sudo docker compose -f docker-compose.prod.yml up -d --build --force-recreate
+            sudo docker image prune -f
             # ./deploy_script.sh
           EOF

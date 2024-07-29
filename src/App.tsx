@@ -24,7 +24,10 @@ function App() {
 
   return (
     <>
-      <div>alejandro carpio site</div>
+      <div className="container">
+        <div>alejandro</div>
+        <div>carpio</div>
+      </div>
     </>
   );
 }
