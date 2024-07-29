@@ -25,15 +25,15 @@ jobs:
           push: true
           tags: ${{secrets.DOCKER_USERNAME}}/myapp3
           
-      - name: Add EC2 to known_hosts
-        run: |
-          ssh-keyscan -H ec2-3-132-99-76.us-east-2.compute.amazonaws.com >> ~/.ssh/known_hosts
-      
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{secrets.AWS_PRINCIPAL_KEY}}
-
+            
+      - name: Add EC2 to known_hosts
+        run: |
+          ssh-keyscan -H ec2-3-132-99-76.us-east-2.compute.amazonaws.com >> ~/.ssh/known_hosts
+            
       - name: Copy File with SCP
         run: |
           scp -o StrictHostKeyChecking=no -i ~/.ssh/aws_action_dockertest /docker-compose.prod.yml ubuntu@ec2-3-132-99-76.us-east-2.compute.amazonaws.com:/home/ubuntu/
