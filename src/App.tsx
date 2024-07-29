@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <div>SEXO 2</div>
+      <div>SEXO 22</div>
     </>
   );
 }
