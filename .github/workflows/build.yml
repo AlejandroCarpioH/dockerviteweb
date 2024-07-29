@@ -23,4 +23,17 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{secrets.DOCKER_USERNAME }}/myapp3
+          tags: ${{secrets.DOCKER_USERNAME}}/myapp3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{secrets.AWS_PRINCIPAL_KEY}}
+
+      - name: Deploy via SSH
+        run: |
+          ssh -o StrictHostKeyChecking=no -i ~/.ssh/aws_action_dockertest ubuntu@ec2-3-132-99-76.us-east-2.compute.amazonaws.com << 'EOF'
+            cd /home/ubuntu/
+            scp -i ~/.ssh/aws_action_dockertest /docker-compose.prod.yml ubuntu@ec2-3-132-99-76.us-east-2.compute.amazonaws.com:/
+            # ./deploy_script.sh
+          EOF
