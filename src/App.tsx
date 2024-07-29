@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <div>este es un nuevo valor</div>
+      <div>SEXO</div>
     </>
   );
 }
