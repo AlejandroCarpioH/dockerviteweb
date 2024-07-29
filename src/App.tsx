@@ -24,7 +24,7 @@ function App() {
 
   return (
     <>
-      <div>SEXO 22</div>
+      <div>alejandro carpio site</div>
     </>
   );
 }
