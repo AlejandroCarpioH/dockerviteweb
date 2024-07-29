@@ -4,7 +4,7 @@ services:
     image: koyotee/myapp3
     pull_policy: always
     ports:
-      - "3005:80"
+      - "3004:80"
     # volumes:
     # - .:/home/app
     # - /home/app/node_modules
