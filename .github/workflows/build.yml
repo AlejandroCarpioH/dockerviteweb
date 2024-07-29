@@ -37,7 +37,7 @@ jobs:
       - name: Copy File with SCP
         run: |
           ls ~/
-          scp -o StrictHostKeyChecking=no ~/runner/work/dockerviteweb/dockerviteweb/docker-compose.prod.yml ubuntu@ec2-3-132-99-76.us-east-2.compute.amazonaws.com:/home/ubuntu/
+          scp -o StrictHostKeyChecking=no ~/work/dockerviteweb/dockerviteweb/docker-compose.prod.yml ubuntu@ec2-3-132-99-76.us-east-2.compute.amazonaws.com:/home/ubuntu/
   
 
       - name: Deploy via SSH
