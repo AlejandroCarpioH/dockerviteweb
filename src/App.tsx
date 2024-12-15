@@ -26,7 +26,7 @@ function App() {
     <>
       <div className="container">
         <div>alejandro</div>
-        <div>el rey del sexo</div>
+        <div>carpio</div>
       </div>
     </>
   );
