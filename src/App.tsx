@@ -24,7 +24,10 @@ function App() {
 
   return (
     <>
-      <div>este es un nuevo valor</div>
+      <div className="container">
+        <div>alejandro</div>
+        <div>el rey del sexo</div>
+      </div>
     </>
   );
 }
