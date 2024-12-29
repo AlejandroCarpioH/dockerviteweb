@@ -28,8 +28,8 @@ function App() {
     });
     console.log(response);
     if (!response.ok) return;
-    const result = await response.json();
-    setValue(result);
+    const result = (await response.json()) as { message: string };
+    setValue(result.message);
 
     console.log(result);
   };
