@@ -2,6 +2,7 @@
 // import reactLogo from "./assets/react.svg";
 // import viteLogo from "/vite.svg";
 // import { useEffect } from "react";
+import { useState } from "react";
 import "./App.css";
 // import { getApi } from "./api/getData";
 
@@ -13,20 +14,52 @@ import "./App.css";
 // }
 
 function App() {
-  // const [users, setUsers] = useState<data[]>([]);
+  const [value, setValue] = useState("");
+  const [audio, setAudio] = useState<File | null>(null);
 
-  // useEffect(() => {
-  //   (async () => {
-  //     const data = (await getApi()) as data[];
-  //     setUsers(data);
-  //   })();
-  // }, []);
+  const handleFetch = async () => {
+    const formData = new FormData();
+    if (!audio) return;
+    formData.append("audio", audio);
+    const response = await fetch("https://acarpio.dev/audioToText", {
+      method: "POST",
+      // mode: "no-cors",
+      body: formData,
+    });
+    console.log(response);
+    if (!response.ok) return;
+    const result = await response.json();
+    setValue(result);
+
+    console.log(result);
+  };
 
   return (
     <>
       <div className="container">
-        <div>alejandro</div>
-        <div>carpio</div>
+        <input
+          type="file"
+          accept="audio/*"
+          onChange={(e) => {
+            if (!e.target.files) return;
+            setAudio(e.target.files[0]);
+          }}
+        />
+        <button onClick={handleFetch}>enviar</button>
+        <textarea
+          value={`
+          ${value}
+            `}
+          readOnly
+          style={{ height: 100, resize: "none" }}
+        />
+        {/* <input
+          style={{ height: 200 }}
+          type="text"
+          value={"hola como estas "}
+          readOnly
+          placeholder="respuesta..."
+        /> */}
       </div>
     </>
   );
