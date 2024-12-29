@@ -69,7 +69,12 @@ function App() {
           ${value}
             `}
             readOnly
-            style={{ height: 100, resize: "none", fontSize: "1.5rem" }}
+            style={{
+              height: 100,
+              width: "100vw",
+              resize: "none",
+              fontSize: "1.1rem",
+            }}
           />
           {/* <input
           style={{ height: 200 }}
